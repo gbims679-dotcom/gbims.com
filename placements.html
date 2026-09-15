@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Placements | GBIMS</title>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+    /* ================================
+       PLACEMENT PAGE PROFESSIONAL CSS
+    ================================= */
+
+    .placement-hero {
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+        overflow: hidden;
+        background:
+            linear-gradient(135deg,
+                rgba(10, 25, 60, .95),
+                rgba(20, 70, 120, .90)),
+            url("images/placement-bg.jpg") center/cover;
+    }
+
+    .placement-hero::before {
+        content: "";
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background: rgba(0, 200, 255, .15);
+        filter: blur(80px);
+        top: -150px;
+        left: -100px;
+    }
+
+    .placement-hero::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(120, 80, 255, .15);
+        filter: blur(90px);
+        right: -100px;
+        bottom: -150px;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 850px;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 50px;
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.2);
+        color: #fff;
+        font-size: .9rem;
+        margin-bottom: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        color: white;
+        margin-bottom: 20px;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    .hero-content h1 span {
+        color: #38d9ff;
+    }
+
+    .hero-content p {
+        color: rgba(255,255,255,.85);
+        font-size: 1.15rem;
+        line-height: 1.8;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .hero-buttons {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .hero-btn {
+        padding: 13px 25px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: .3s;
+    }
+
+    .hero-btn.primary {
+        background: #fff;
+        color: #123;
+    }
+
+    .hero-btn.secondary {
+        border: 1px solid rgba(255,255,255,.4);
+        color: #fff;
+        background: rgba(255,255,255,.08);
+    }
+
+    .hero-btn:hover {
+        transform: translateY(-4px);
+    }
+
+
+    /* ================================
+       STATS
+    ================================= */
+
+    .placement-stats {
+        margin-top: -70px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .stat-card {
+        padding: 30px 20px;
+        text-align: center;
+        border-radius: 18px;
+        background: rgba(255,255,255,.95);
+        box-shadow: 0 15px 45px rgba(0,0,0,.12);
+        border: 1px solid rgba(0,0,0,.05);
+        transition: .35s;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 55px rgba(0,0,0,.18);
+    }
+
+    .stat-icon {
+        width: 55px;
+        height: 55px;
+        margin: auto auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        background: linear-gradient(135deg,#0d6efd,#00c6ff);
+        color: white;
+        font-size: 1.3rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+    }
+
+    .stat-label {
+        color: var(--text-muted);
+        font-size: .9rem;
+        margin-top: 5px;
+    }
+
+
+    /* ================================
+       SECTION INTRO
+    ================================= */
+
+    .section-heading {
+        text-align: center;
+        max-width: 750px;
+        margin: 0 auto 45px;
+    }
+
+    .section-heading .tag {
+        color: var(--accent);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: .8rem;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(2rem,4vw,3rem);
+        margin: 10px 0;
+    }
+
+    .section-heading p {
+        color: var(--text-muted);
+        line-height: 1.7;
+    }
+
+
+    /* ================================
+       RECRUITERS
+    ================================= */
+
+    .recruiter-grid {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        gap: 18px;
+    }
+
+    .recruiter {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        background: rgba(255,255,255,.7);
+        border: 1px solid rgba(0,0,0,.06);
+        font-weight: 800;
+        color: #344054;
+        transition: .3s;
+    }
+
+    .recruiter i {
+        margin-right: 8px;
+        color: var(--primary);
+    }
+
+    .recruiter:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0,0,0,.1);
+    }
+
+
+    /* ================================
+       SUCCESS STORIES
+    ================================= */
+
+    .success-grid {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 22px;
+    }
+
+    .success-card {
+        padding: 28px;
+        text-align: center;
+        border-radius: 20px;
+        background: rgba(255,255,255,.75);
+        border: 1px solid rgba(0,0,0,.07);
+        transition: .35s;
+    }
+
+    .success-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .student-avatar {
+        width: 80px;
+        height: 80px;
+        margin: auto auto 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        background: linear-gradient(135deg,#e7f3ff,#d8faff);
+    }
+
+    .student-name {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--primary);
+    }
+
+    .student-course {
+        font-size: .85rem;
+        color: var(--text-muted);
+        margin: 5px 0 15px;
+    }
+
+    .package {
+        display: inline-block;
+        padding: 7px 15px;
+        border-radius: 50px;
+        background: #e8fff4;
+        color: #087443;
+        font-weight: 800;
+        font-size: .9rem;
+    }
+
+
+    /* ================================
+       PLACEMENT PROCESS
+    ================================= */
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 25px;
+        position: relative;
+    }
+
+    .process-card {
+        position: relative;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .process-number {
+        width: 55px;
+        height: 55px;
+        margin: auto auto 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg,#0d6efd,#00c6ff);
+        color: white;
+        font-weight: 800;
+        font-size: 1.1rem;
+    }
+
+    .process-card h3 {
+        margin-bottom: 10px;
+    }
+
+    .process-card p {
+        color: var(--text-muted);
+        font-size: .9rem;
+        line-height: 1.6;
+    }
+
+
+    /* ================================
+       SUPPORT
+    ================================= */
+
+    .support-grid {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px;
+    }
+
+    .support-card {
+        padding: 28px;
+        border-radius: 18px;
+        background: linear-gradient(
+            145deg,
+            rgba(255,255,255,.9),
+            rgba(240,248,255,.7)
+        );
+        border: 1px solid rgba(0,0,0,.06);
+        transition: .3s;
+    }
+
+    .support-card:hover {
+        transform: translateY(-7px);
+    }
+
+    .support-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .support-card h3 {
+        margin-bottom: 8px;
+    }
+
+    .support-card p {
+        color: var(--text-muted);
+        font-size: .9rem;
+        line-height: 1.6;
+    }
+
+
+    /* ================================
+       CTA
+    ================================= */
+
+    .placement-cta {
+        margin: 30px auto 70px;
+        max-width: 1100px;
+        padding: 60px 30px;
+        border-radius: 25px;
+        text-align: center;
+        color: white;
+        background:
+            linear-gradient(
+                135deg,
+                #0b1f4b,
+                #075985
+            );
+        position: relative;
+        overflow: hidden;
+    }
+
+    .placement-cta::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(0,200,255,.15);
+        filter: blur(50px);
+        top: -100px;
+        right: -80px;
+    }
+
+    .placement-cta h2 {
+        position: relative;
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+
+    .placement-cta p {
+        position: relative;
+        opacity: .85;
+        margin-bottom: 25px;
+    }
+
+    .cta-button {
+        position: relative;
+        display: inline-block;
+        padding: 13px 25px;
+        border-radius: 10px;
+        background: white;
+        color: #073763;
+        text-decoration: none;
+        font-weight: 800;
+        transition: .3s;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-4px);
+    }
+
+
+    /* ================================
+       RESPONSIVE
+    ================================= */
+
+    @media(max-width:1000px) {
+
+        .stats-grid,
+        .success-grid,
+        .support-grid {
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        .recruiter-grid {
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        .process-grid {
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+
+    @media(max-width:600px) {
+
+        .placement-hero {
+            min-height: 450px;
+            padding: 80px 18px;
+        }
+
+        .stats-grid,
+        .success-grid,
+        .support-grid,
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .recruiter-grid {
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        .placement-stats {
+            margin-top: -40px;
+        }
+
+        .stat-card {
+            padding: 25px 15px;
+        }
+
+        .placement-cta {
+            margin: 20px 15px 50px;
+        }
+    }
+    img{
+        border-radius: 20%;
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================================ HEADER ================================= -->
+
+<header> <div class="header-content">
+
+    <a href="index.html" class="logo">
+        <div class="logo-badge"><img src="gb-logo.jfif"></img></div>
+
+        <div>
+            <div class="logo-text">GBIMS</div>
+            <div class="logo-sub">Learning Portal</div>
+        </div>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="placements.html" class="active">Placements</a>
+        <a href="facilities.html">Facilities</a>
+        <a href="dashboard.html">LMS Dashboard</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <a href="dashboard.html" class="btn btn-primary">
+        <i class="fas fa-sign-in-alt"></i>
+        Login LMS
+    </a>
+
+</div>
+
+</header>
+
+<!-- ================================ HERO ================================= -->
+
+<section class="placement-hero">
+
+<div class="hero-content">
+
+    <div class="hero-badge">
+        <i class="fas fa-briefcase"></i>
+        Career & Placement Cell
+    </div>
+
+    <h1>
+        Launch Your Career with
+        <span>GBIMS</span>
+    </h1>
+
+    <p>
+        We connect students with industry opportunities through
+        career guidance, skill development, recruitment drives
+        and strong corporate partnerships.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#placements" class="hero-btn primary">
+            <i class="fas fa-chart-line"></i>
+            Placement Highlights
+        </a>
+
+        <a href="contact.html" class="hero-btn secondary">
+            <i class="fas fa-phone"></i>
+            Contact Placement Cell
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================================ PLACEMENT STATS ================================= -->
+
+<section class="section placement-stats" id="placements">
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            <i class="fas fa-user-check"></i>
+        </div>
+
+        <div class="stat-number">95%</div>
+
+        <div class="stat-label">
+            Placement Rate
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            <i class="fas fa-indian-rupee-sign"></i>
+        </div>
+
+        <div class="stat-number">₹3 LPA</div>
+
+        <div class="stat-label">
+            Average Package
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            <i class="fas fa-building"></i>
+        </div>
+
+        <div class="stat-number">100+</div>
+
+        <div class="stat-label">
+            Corporate Partners
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            <i class="fas fa-users"></i>
+        </div>
+
+        <div class="stat-number">500+</div>
+
+        <div class="stat-label">
+            Students Placed Annually
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================================ RECRUITERS ================================= -->
+
+<section class="section">
+
+<div class="section-heading">
+
+    <div class="tag">
+        Industry Connect
+    </div>
+
+    <h2>Our Hiring Partners</h2>
+
+    <p>
+        Our students get opportunities to interact with
+        organizations across multiple sectors and industries.
+    </p>
+
+</div>
+
+
+<div class="recruiter-grid">
+
+    <div class="recruiter">
+        <i class="fas fa-building"></i>
+        TCS
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-code"></i>
+        Infosys
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-laptop"></i>
+        Wipro
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-network-wired"></i>
+        HCL
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-chart-line"></i>
+        ICICI Bank
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-university"></i>
+        HDFC Bank
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-shopping-cart"></i>
+        Flipkart
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-globe"></i>
+        Amazon
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-briefcase"></i>
+        Deloitte
+    </div>
+
+    <div class="recruiter">
+        <i class="fas fa-business-time"></i>
+        Genpact
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================================ SUCCESS STORIES ================================= -->
+
+<section class="section">
+
+<div class="section-heading">
+
+    <div class="tag">
+        Student Achievements
+    </div>
+
+    <h2>Placement Success Stories</h2>
+
+    <p>
+        Our students are building successful careers
+        across different sectors.
+    </p>
+
+</div>
+
+
+<div class="success-grid">
+
+    <div class="success-card">
+
+        <div class="student-avatar">👨‍💼</div>
+
+        <div class="student-name">
+            Abhishek Tomar
+        </div>
+
+        <div class="student-course">
+            BCA Final Year
+        </div>
+
+        <span class="package">
+            ₹3 Lakh P.A.
+        </span>
+
+    </div>
+
+
+    <div class="success-card">
+
+        <div class="student-avatar">👨‍💼</div>
+
+        <div class="student-name">
+            Karan Partap
+        </div>
+
+        <div class="student-course">
+            BCA Final Year
+        </div>
+
+        <span class="package">
+            ₹3 Lakh P.A.
+        </span>
+
+    </div>
+
+
+    <div class="success-card">
+
+        <div class="student-avatar">👨‍💻</div>
+
+        <div class="student-name">
+            Rahul Hacker
+        </div>
+
+        <div class="student-course">
+            BCA Final Year
+        </div>
+
+        <span class="package">
+            ₹3 Lakh P.A.
+        </span>
+
+    </div>
+
+
+    <div class="success-card">
+
+        <div class="student-avatar">👨‍🎓</div>
+
+        <div class="student-name">
+            Doremon
+        </div>
+
+        <div class="student-course">
+            B.Com Final Year
+        </div>
+
+        <span class="package">
+            ₹3 Lakh P.A.
+        </span>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================================ PLACEMENT PROCESS ================================= -->
+
+<section class="section">
+
+<div class="section-heading">
+
+    <div class="tag">
+        Career Journey
+    </div>
+
+    <h2>Our Placement Process</h2>
+
+    <p>
+        A structured process designed to prepare students
+        for successful careers.
+    </p>
+
+</div>
+
+
+<div class="process-grid">
+
+    <div class="process-card">
+
+        <div class="process-number">01</div>
+
+        <h3>Skill Assessment</h3>
+
+        <p>
+            Identify student strengths, skills and
+            areas for improvement.
+        </p>
+
+    </div>
+
+
+    <div class="process-card">
+
+        <div class="process-number">02</div>
+
+        <h3>Training</h3>
+
+        <p>
+            Aptitude, communication, technical and
+            personality development sessions.
+        </p>
+
+    </div>
+
+
+    <div class="process-card">
+
+        <div class="process-number">03</div>
+
+        <h3>Recruitment</h3>
+
+        <p>
+            Students participate in interviews,
+            tests and recruitment drives.
+        </p>
+
+    </div>
+
+
+    <div class="process-card">
+
+        <div class="process-number">04</div>
+
+        <h3>Career Launch</h3>
+
+        <p>
+            Selected students begin their professional
+            journey with industry partners.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================================ PLACEMENT CELL SUPPORT ================================= -->
+
+<section class="section">
+
+<div class="section-heading">
+
+    <div class="tag">
+        Student Support
+    </div>
+
+    <h2>Placement Cell Support</h2>
+
+    <p>
+        We help students become confident, skilled and
+        industry-ready professionals.
+    </p>
+
+</div>
+
+
+<div class="support-grid">
+
+    <div class="support-card">
+
+        <div class="support-icon">🎯</div>
+
+        <h3>Career Guidance</h3>
+
+        <p>
+            Personalized counselling, career mapping
+            and professional guidance.
+        </p>
+
+    </div>
+
+
+    <div class="support-card">
+
+        <div class="support-icon">🗣️</div>
+
+        <h3>Soft Skills Training</h3>
+
+        <p>
+            Communication, interview skills, GD and
+            personality development.
+        </p>
+
+    </div>
+
+
+    <div class="support-card">
+
+        <div class="support-icon">🤝</div>
+
+        <h3>Industry Connect</h3>
+
+        <p>
+            Guest lectures, industrial visits,
+            internships and corporate interaction.
+        </p>
+
+    </div>
+
+
+    <div class="support-card">
+
+        <div class="support-icon">📄</div>
+
+        <h3>Resume Building</h3>
+
+        <p>
+            Professional resume preparation and
+            LinkedIn profile guidance.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ================================ CTA ================================= -->
+
+<section class="placement-cta">
+
+<h2>Ready to Build Your Career?</h2>
+
+<p>
+    Join GBIMS and take the next step towards
+    a successful professional future.
+</p>
+
+<a href="contact.html" class="cta-button">
+    <i class="fas fa-arrow-right"></i>
+    Talk to Our Placement Cell
+</a>
+
+</section>
+
+<!-- ================================ FOOTER ================================= -->
+
+<footer>
+
+<div class="footer-content">
+
+    <div class="footer-section">
+
+        <h4>About GBIMS</h4>
+
+        <p>
+            Established 2009 • 1500+ Students •
+            4000+ Alumni
+        </p>
+
+        <div class="footer-social">
+
+            <a href="https://www.facebook.com/gbims2009/"
+               target="_blank"
+               class="social-btn">
+
+                <i class="fab fa-facebook-f"></i>
+
+            </a>
+
+            <a href="https://instagram.com/gbimsmeerut"
+               target="_blank"
+               class="social-btn">
+
+                <i class="fab fa-instagram"></i>
+
+            </a>
+
+            <a href="#"
+               class="social-btn">
+
+                <i class="fab fa-linkedin-in"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-section">
+
+        <h4>Quick Links</h4>
+
+        <p>
+            <a href="index.html">Home</a>
+        </p>
+
+        <p>
+            <a href="courses.html">Courses</a>
+        </p>
+
+        <p>
+            <a href="placements.html">Placements</a>
+        </p>
+
+        <p>
+            <a href="dashboard.html">LMS</a>
+        </p>
+
+        <p>
+            <a href="contact.html">Contact</a>
+        </p>
+
+    </div>
+
+
+    <div class="footer-section">
+
+        <h4>Contact</h4>
+
+        <p>
+            📍 Jewari, Khirwa Road, Meerut – 250001
+        </p>
+
+        <p>
+            📞 +91 9756477788
+        </p>
+
+        <p>
+            📧 infogyanbharti@gmail.com
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    <p>
+        © 2026 Gyan Bharti Institute of Management Studies.
+        All rights reserved.
+    </p>
+
+</div>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+</body> </html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | GBIMS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border 0.3s, box-shadow 0.3s;
+            background: white;
+            color: var(--text);
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--sky);
+            box-shadow: 0 0 0 3px rgba(14,165,233,0.15);
+        }
+        .info-item {
+            display: flex;
+            gap: 1.1rem;
+            margin-bottom: 1.6rem;
+            align-items: flex-start;
+        }
+        .info-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #eef6ff, #e0f2fe);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--blue);
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(11,61,145,0.08);
+        }
+        .map-box {
+            margin-top: 2.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            height: 220px;
+            background: linear-gradient(135deg, #0b3d91, #075985);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+        .map-box::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50%;
+            top: -80px;
+            right: -60px;
+        }
+        .map-box i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #67e8f9;
+        }
+        img{
+        border-radius: 20%;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-badge"><img src="gb-logo.jfif"></img></div>
+                <div>
+                    <div class="logo-text">GBIMS</div>
+                    <div class="logo-sub">Learning Portal</div>
+                </div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="placements.html">Placements</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="dashboard.html">LMS Dashboard</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <a href="dashboard.html" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login LMS</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h1>Contact Us</h1>
+        <p>We are here to help. Reach out for admissions, counselling or any query.</p>
+    </section>
+
+    <section class="section">
+        <div class="contact-grid">
+            <div>
+                <h2 style="color:var(--blue);margin-bottom:1.6rem;font-size:1.45rem;font-weight:900;">Get in Touch</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <strong style="font-size:1rem;">Address</strong>
+                        <p style="color:var(--muted);font-size:0.95rem;margin-top:4px;line-height:1.6;">Jewari, Khirwa Road,<br>Kanker Khera, Meerut<br>Uttar Pradesh 250001, India</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <strong style="font-size:1rem;">Phone</strong>
+                        <p style="color:var(--muted);font-size:0.95rem;margin-top:4px;">+91 9718603344</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <strong style="font-size:1rem;">Email</strong>
+                        <p style="color:var(--muted);font-size:0.95rem;margin-top:4px;">infogyanbharti@gmail.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <strong style="font-size:1rem;">Office Hours</strong>
+                        <p style="color:var(--muted);font-size:0.95rem;margin-top:4px;">Mon – Sat: 9:00 AM – 5:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <div class="footer-social" style="margin-top:1.8rem;">
+                    <a href="https://www.facebook.com/gbims2009/" target="_blank" class="social-btn" style="background:var(--blue);"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.bing.com/ck/a?!&&p=c518eb7482f1bfa28061fb1f4318a727b39ffe1a64d6aaf149c9bb5c1ab20451JmltdHM9MTc4OTI1NzYwMA&ptn=3&ver=2&hsh=4&fclid=1465c2f3-5735-68ba-350d-d4a856b669e1&psq=gbims+insta&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9neWFuYmhhcnRpZ3JvdXBvZmluc3RpdHV0aW9uLw" target="_blank" class="social-btn" style="background:var(--blue);"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn" style="background:var(--blue);"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn" style="background:var(--blue);"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <div class="map-box">
+                    <div style="text-align:center;position:relative;z-index:2;">
+                        <i class="fas fa-map-location-dot"></i>
+                        <p style="font-weight:700;margin-top:8px;">Meerut Campus</p>
+                        <p style="font-size:0.85rem;opacity:0.8;">Kanker Khera, Meerut</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" style="padding:2.2rem;">
+                <h2 style="color:var(--blue);margin-bottom:1.3rem;font-size:1.35rem;font-weight:900;">Send a Message</h2>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been received. We will contact you soon.'); this.reset();">
+                    <input type="text" placeholder="Full Name *" required>
+                    <input type="email" placeholder="Email Address *" required>
+                    <input type="tel" placeholder="Phone Number">
+                    <select required>
+                        <option value="">Select Enquiry Type *</option>
+                        <option>Admission Enquiry</option>
+                        <option>Course Information</option>
+                        <option>Fee Structure</option>
+                        <option>LMS Support</option>
+                        <option>Placement Related</option>
+                        <option>Other</option>
+                    </select>
+                    <textarea rows="4" placeholder="Your Message *" required></textarea>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem;font-size:0.95rem;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GBIMS</h4>
+                <p>Gyan Bharti Institute of Management Studies – Shaping futures since 2009.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/gbims2009/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/gbimsmeerut" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="courses.html">Courses</a></p>
+                <p><a href="dashboard.html">LMS Dashboard</a></p>
+                <p><a href="placements.html">Placements</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Academic</h4>
+                <p><a href="courses.html">Programs</a></p>
+                <p><a href="facilities.html">Facilities</a></p>
+                <p><a href="placements.html">Placements</a></p>
+                <p><a href="contact.html">Admissions</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📍 Jewari, Khirwa Road, Kanker Khera, Meerut – 250001</p>
+                <p>📞 +91 9718603344</p>
+                <p>📧 infogyanbharti@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Gyan Bharti Institute of Management Studies. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

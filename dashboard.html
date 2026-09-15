@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Dashboard | GBIMS Learning Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .dash-welcome {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue2) 100%);
+            color: white;
+            padding: 1.6rem 2rem;
+            border-radius: 18px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(11,61,145,0.25);
+        }
+        .dash-welcome::after {
+            content: '';
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 180px;
+            height: 180px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .quick-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1.1rem;
+        }
+        .quick-btn {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: white;
+            padding: 0.55rem 1.1rem;
+            border-radius: 9px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            backdrop-filter: blur(6px);
+        }
+        .quick-btn:hover {
+            background: white;
+            color: var(--blue);
+        }
+        .announcement {
+            padding: 0.95rem;
+            background: #f8fafc;
+            border-left: 4px solid var(--cyan);
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 0.85rem;
+            font-size: 0.9rem;
+        }
+        .calendar-day {
+            display: inline-flex;
+            width: 36px;
+            height: 36px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin: 2px;
+        }
+        .calendar-day.today {
+            background: var(--blue);
+            color: white;
+            font-weight: 700;
+        }
+        .calendar-day.has-event {
+            background: #fff3e0;
+            color: #e65100;
+            font-weight: 600;
+        }
+        .grade-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 4px solid var(--sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--blue);
+            font-size: 1.1rem;
+        }
+        header .logo-sub { opacity: 0.85; }
+        img{
+        border-radius: 20%;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-badge"><img src="gb-logo.jfif"></img></div>
+                <div>
+                    <div class="logo-text">GBIMS</div>
+                    <div class="logo-sub">LMS Dashboard</div>
+                </div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <span style="font-size:0.85rem;color:rgba(255,255,255,0.9);">Welcome, Rahul</span>
+                <a href="index.html" class="btn btn-secondary" style="padding:0.45rem 0.95rem;font-size:12px;">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <div class="avatar">R</div>
+                <h3 style="font-size:1.05rem;">Rahul Sharma</h3>
+                <p style="font-size:0.8rem;opacity:0.75;">Student ID: GB2024-1842</p>
+                <p style="font-size:0.75rem;opacity:0.6;margin-top:4px;">BCA • 3rd Semester</p>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-book-open"></i> My Courses</a></li>
+                <li><a href="#"><i class="fas fa-tasks"></i> Assignments</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Grades</a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> Study Materials</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Timetable</a></li>
+                <li><a href="#"><i class="fas fa-bell"></i> Announcements</a></li>
+                <li><a href="#"><i class="fas fa-comments"></i> Messages</a></li>
+                <li><a href="#"><i class="fas fa-user-cog"></i> Profile Settings</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="dash-welcome">
+                <h2 style="font-size:1.5rem;margin-bottom:0.3rem;position:relative;z-index:2;">Good Morning, Rahul! 👋</h2>
+                <p style="opacity:0.9;font-size:0.95rem;position:relative;z-index:2;">You have 3 assignments due this week and 1 upcoming quiz. Keep up the great work!</p>
+                <div class="quick-actions" style="position:relative;z-index:2;">
+                    <button class="quick-btn"><i class="fas fa-upload"></i> Submit Assignment</button>
+                    <button class="quick-btn"><i class="fas fa-download"></i> Download Notes</button>
+                    <button class="quick-btn"><i class="fas fa-video"></i> Join Live Class</button>
+                    <button class="quick-btn"><i class="fas fa-calendar-check"></i> View Timetable</button>
+                </div>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="dash-stat glass-card">
+                    <div class="dash-stat-icon" style="background:#e3f2fd;color:#1565c0;">📚</div>
+                    <div class="dash-stat-info">
+                        <h3>5</h3>
+                        <p>Enrolled Courses</p>
+                    </div>
+                </div>
+                <div class="dash-stat glass-card">
+                    <div class="dash-stat-icon" style="background:#fff3e0;color:#e65100;">📝</div>
+                    <div class="dash-stat-info">
+                        <h3>3</h3>
+                        <p>Pending Tasks</p>
+                    </div>
+                </div>
+                <div class="dash-stat glass-card">
+                    <div class="dash-stat-icon" style="background:#e8f5e9;color:#2e7d32;">⭐</div>
+                    <div class="dash-stat-info">
+                        <h3>8.4</h3>
+                        <p>CGPA</p>
+                    </div>
+                </div>
+                <div class="dash-stat glass-card">
+                    <div class="dash-stat-icon" style="background:#fce4ec;color:#c2185b;">📅</div>
+                    <div class="dash-stat-info">
+                        <h3>78%</h3>
+                        <p>Attendance</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-grid">
+                <div>
+                    <div class="dash-card mb-2">
+                        <h3><i class="fas fa-book"></i> My Courses Progress</h3>
+                        <div class="course-progress-item">
+                            <div style="min-width:120px;font-weight:600;font-size:0.9rem;">Data Structures</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:72%;"></div></div>
+                            <span style="font-size:0.85rem;font-weight:600;color:var(--blue);">72%</span>
+                        </div>
+                        <div class="course-progress-item">
+                            <div style="min-width:120px;font-weight:600;font-size:0.9rem;">Web Technology</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:85%;"></div></div>
+                            <span style="font-size:0.85rem;font-weight:600;color:var(--blue);">85%</span>
+                        </div>
+                        <div class="course-progress-item">
+                            <div style="min-width:120px;font-weight:600;font-size:0.9rem;">Database Mgmt</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:60%;"></div></div>
+                            <span style="font-size:0.85rem;font-weight:600;color:var(--blue);">60%</span>
+                        </div>
+                        <div class="course-progress-item">
+                            <div style="min-width:120px;font-weight:600;font-size:0.9rem;">Python Programming</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:90%;"></div></div>
+                            <span style="font-size:0.85rem;font-weight:600;color:var(--blue);">90%</span>
+                        </div>
+                        <div class="course-progress-item">
+                            <div style="min-width:120px;font-weight:600;font-size:0.9rem;">Soft Skills</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:45%;"></div></div>
+                            <span style="font-size:0.85rem;font-weight:600;color:var(--blue);">45%</span>
+                        </div>
+                    </div>
+
+                    <div class="dash-card">
+                        <h3><i class="fas fa-tasks"></i> Upcoming Assignments</h3>
+                        <div class="assignment-item">
+                            <div>
+                                <strong>DSA Lab Assignment 4</strong><br>
+                                <span style="font-size:0.8rem;color:var(--muted);">Data Structures • Due in 2 days</span>
+                            </div>
+                            <span class="badge badge-due">Due Soon</span>
+                        </div>
+                        <div class="assignment-item">
+                            <div>
+                                <strong>HTML/CSS Mini Project</strong><br>
+                                <span style="font-size:0.8rem;color:var(--muted);">Web Technology • Due in 5 days</span>
+                            </div>
+                            <span class="badge badge-due">Pending</span>
+                        </div>
+                        <div class="assignment-item">
+                            <div>
+                                <strong>SQL Queries Practice</strong><br>
+                                <span style="font-size:0.8rem;color:var(--muted);">Database Mgmt • Due in 7 days</span>
+                            </div>
+                            <span class="badge badge-due">Pending</span>
+                        </div>
+                        <div class="assignment-item">
+                            <div>
+                                <strong>Python Functions Quiz</strong><br>
+                                <span style="font-size:0.8rem;color:var(--muted);">Python Programming • Submitted</span>
+                            </div>
+                            <span class="badge badge-done">Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="dash-card mb-2">
+                        <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
+                        <div class="announcement">
+                            <strong>Mid-Semester Exams</strong><br>
+                            Schedule released. Check academic calendar. Starts 25 Sep 2026.
+                        </div>
+                        <div class="announcement">
+                            <strong>Guest Lecture</strong><br>
+                            Industry expert session on AI Careers – 15 Sep, 11 AM, Seminar Hall.
+                        </div>
+                        <div class="announcement">
+                            <strong>Fee Reminder</strong><br>
+                            Semester fee last date: 20 September 2026.
+                        </div>
+                    </div>
+
+                    <div class="dash-card mb-2">
+                        <h3><i class="fas fa-calendar"></i> September 2026</h3>
+                        <div style="text-align:center;font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem;">
+                            Sun Mon Tue Wed Thu Fri Sat
+                        </div>
+                        <div style="display:flex;flex-wrap:wrap;justify-content:center;">
+                            <span class="calendar-day"></span>
+                            <span class="calendar-day">1</span>
+                            <span class="calendar-day">2</span>
+                            <span class="calendar-day">3</span>
+                            <span class="calendar-day">4</span>
+                            <span class="calendar-day">5</span>
+                            <span class="calendar-day">6</span>
+                            <span class="calendar-day">7</span>
+                            <span class="calendar-day">8</span>
+                            <span class="calendar-day">9</span>
+                            <span class="calendar-day">10</span>
+                            <span class="calendar-day today">11</span>
+                            <span class="calendar-day has-event">12</span>
+                            <span class="calendar-day">13</span>
+                            <span class="calendar-day">14</span>
+                            <span class="calendar-day has-event">15</span>
+                            <span class="calendar-day">16</span>
+                            <span class="calendar-day">17</span>
+                            <span class="calendar-day">18</span>
+                            <span class="calendar-day">19</span>
+                            <span class="calendar-day has-event">20</span>
+                            <span class="calendar-day">21</span>
+                            <span class="calendar-day">22</span>
+                            <span class="calendar-day">23</span>
+                            <span class="calendar-day">24</span>
+                            <span class="calendar-day has-event">25</span>
+                            <span class="calendar-day">26</span>
+                            <span class="calendar-day">27</span>
+                            <span class="calendar-day">28</span>
+                            <span class="calendar-day">29</span>
+                            <span class="calendar-day">30</span>
+                        </div>
+                        <p style="font-size:0.75rem;color:var(--muted);margin-top:0.8rem;text-align:center;">
+                            🟠 Events: Guest Lecture (15), Fee Due (20), Mid-Sem (25)
+                        </p>
+                    </div>
+
+                    <div class="dash-card">
+                        <h3><i class="fas fa-medal"></i> Recent Grades</h3>
+                        <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem;margin-top:0.5rem;">
+                            <div style="text-align:center;">
+                                <div class="grade-circle">A+</div>
+                                <p style="font-size:0.75rem;margin-top:0.4rem;">Python Quiz</p>
+                            </div>
+                            <div style="text-align:center;">
+                                <div class="grade-circle">A</div>
+                                <p style="font-size:0.75rem;margin-top:0.4rem;">Web Tech</p>
+                            </div>
+                            <div style="text-align:center;">
+                                <div class="grade-circle">B+</div>
+                                <p style="font-size:0.75rem;margin-top:0.4rem;">DSA Lab</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer style="margin-top:0;padding:1.5rem 2rem;">
+        <div class="footer-bottom" style="border:none;padding:0;">
+            <p>© 2026 GBIMS LMS Portal • Student Support: +91 9718603344 • <a href="contact.html" style="color:rgba(255,255,255,0.7);">Help Desk</a></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

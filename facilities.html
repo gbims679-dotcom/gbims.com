@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities | GBIMS Campus</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .facility-card {
+            padding: 32px 20px 24px;
+            text-align: center;
+        }
+        .facility-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #eef6ff, #e0f2fe);
+            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(11,61,145,0.08);
+        }
+        .facility-name {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .facility-card p {
+            padding: 0 8px;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+        .gallery-item {
+            background: linear-gradient(135deg, var(--blue), var(--blue2));
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        .gallery-item span {
+            font-size: 1.8rem;
+        }
+        img{
+        border-radius: 20%;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-badge"><img src="gb-logo.jfif"></img></div>
+                <div>
+                    <div class="logo-text">GBIMS</div>
+                    <div class="logo-sub">Learning Portal</div>
+                </div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="placements.html">Placements</a>
+                <a href="facilities.html" class="active">Facilities</a>
+                <a href="dashboard.html">LMS Dashboard</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <a href="dashboard.html" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login LMS</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h1>Campus Facilities</h1>
+        <p>Modern infrastructure designed for academic excellence and holistic development</p>
+    </section>
+
+    <section class="section">
+        <div class="facilities-grid">
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">📚</div>
+                <div class="facility-name">Central Library</div>
+                <p>Wide collection of textbooks, reference books, journals and digital resources.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🖥️</div>
+                <div class="facility-name">Computer Labs</div>
+                <p>Modern computer labs with high-speed internet and latest software tools.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🔬</div>
+                <div class="facility-name">Science Laboratories</div>
+                <p>Well-equipped Physics, Chemistry and Biology labs for practical learning.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🏥</div>
+                <div class="facility-name">Medical Center</div>
+                <p>On-campus first-aid and medical support for students and staff.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🎓</div>
+                <div class="facility-name">Placement Cell</div>
+                <p>Dedicated cell for training, internships and campus recruitment drives.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🚌</div>
+                <div class="facility-name">Campus Transport</div>
+                <p>Safe and convenient transport facilities connecting major areas of Meerut.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">📡</div>
+                <div class="facility-name">Wi-Fi Campus</div>
+                <p>High-speed Wi-Fi connectivity across the entire campus for seamless learning.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🏃</div>
+                <div class="facility-name">Sports Complex</div>
+                <p>Facilities for indoor and outdoor sports including cricket, volleyball and more.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🍽️</div>
+                <div class="facility-name">Cafeteria</div>
+                <p>Hygienic and affordable food options for students and faculty.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🎤</div>
+                <div class="facility-name">Seminar Hall</div>
+                <p>Spacious hall for seminars, workshops, cultural events and guest lectures.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🌱</div>
+                <div class="facility-name">Green Campus</div>
+                <p>Eco-friendly campus with tree plantation drives and clean surroundings.</p>
+            </div>
+            <div class="facility-card glass-card-3d">
+                <div class="facility-icon">🛡️</div>
+                <div class="facility-name">Security</div>
+                <p>24×7 security and CCTV surveillance for a safe learning environment.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:20px;">
+        <h2 class="section-title">Campus Life Gallery</h2>
+        <p class="section-subtitle">Moments that make student life memorable at GBIMS</p>
+        <div class="gallery">
+            <div class="gallery-item"><span>🎉</span> Annual Fest</div>
+            <div class="gallery-item"><span>🏆</span> Sports Meet</div>
+            <div class="gallery-item"><span>🎭</span> Cultural Events</div>
+            <div class="gallery-item"><span>🎤</span> Seminars</div>
+            <div class="gallery-item"><span>🔧</span> Workshops</div>
+            <div class="gallery-item"><span>🌱</span> Tree Plantation</div>
+            <div class="gallery-item"><span>📚</span> Library Day</div>
+            <div class="gallery-item"><span>🏃</span> Athletics</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GBIMS</h4>
+                <p>Excellence in Education since 2009</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/gbims2009/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/gbimsmeerut" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="courses.html">Courses</a></p>
+                <p><a href="dashboard.html">LMS</a></p>
+                <p><a href="placements.html">Placements</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Campus</h4>
+                <p><a href="facilities.html">Facilities</a></p>
+                <p><a href="courses.html">Programs</a></p>
+                <p><a href="contact.html">Admissions</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📍 Meerut, UP 250001</p>
+                <p>📞 +91 9718603344</p>
+                <p>📧 infogyanbharti@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Gyan Bharti Institute of Management Studies. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ollama AI Chatbot</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #212121;
+        color: white;
+    }
+
+    .app {
+        max-width: 900px;
+        height: 100vh;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        height: 65px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #444;
+    }
+
+    header h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    #clearBtn {
+        background: #444;
+        color: white;
+        border: none;
+        padding: 9px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    #clearBtn:hover {
+        background: #555;
+    }
+
+    #chat {
+        flex: 1;
+        overflow-y: auto;
+        padding: 25px 15px;
+    }
+
+    .message {
+        max-width: 750px;
+        margin: 0 auto 20px;
+        padding: 15px;
+        line-height: 1.6;
+        border-radius: 12px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    .user {
+        background: #343541;
+    }
+
+    .ai {
+        background: #2b2b2b;
+    }
+
+    .label {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #10a37f;
+    }
+
+    .user .label {
+        color: #5ea7ff;
+    }
+
+    #chatForm {
+        display: flex;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    #messageInput {
+        flex: 1;
+        padding: 15px;
+        border: 1px solid #555;
+        border-radius: 10px;
+        background: #2f2f2f;
+        color: white;
+        outline: none;
+        font-size: 16px;
+    }
+
+    #messageInput:focus {
+        border-color: #10a37f;
+    }
+
+    #sendBtn {
+        width: 55px;
+        border: none;
+        border-radius: 10px;
+        background: #10a37f;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    #sendBtn:hover {
+        background: #0d8f70;
+    }
+
+    #sendBtn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .welcome {
+        text-align: center;
+        color: #aaa;
+        margin-top: 35vh;
+    }
+
+    .welcome h2 {
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <h1>🤖 My Ollama AI</h1>
+        <button id="clearBtn">Clear</button>
+    </header>
+
+    <main id="chat">
+
+        <div class="welcome" id="welcome">
+            <h2>How can I help you?</h2>
+            <p>Powered by Ollama</p>
+        </div>
+
+    </main>
+
+    <form id="chatForm">
+
+        <input
+            id="messageInput"
+            type="text"
+            placeholder="Message AI..."
+            autocomplete="off"
+        >
+
+        <button id="sendBtn" type="submit">
+            ➤
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+const chat = document.getElementById("chat");
+const form = document.getElementById("chatForm");
+const input = document.getElementById("messageInput");
+const sendBtn = document.getElementById("sendBtn");
+const clearBtn = document.getElementById("clearBtn");
+const welcome = document.getElementById("welcome");
+
+let messages = [];
+
+
+/* Add message to screen */
+function addMessage(role, text) {
+
+    if (welcome) {
+        welcome.remove();
+    }
+
+    const message = document.createElement("div");
+
+    message.className =
+        "message " + (role === "user" ? "user" : "ai");
+
+    const label = document.createElement("div");
+
+    label.className = "label";
+
+    label.textContent =
+        role === "user" ? "You" : "🤖 AI";
+
+    const content = document.createElement("div");
+
+    content.textContent = text;
+
+    message.appendChild(label);
+    message.appendChild(content);
+
+    chat.appendChild(message);
+
+    chat.scrollTop = chat.scrollHeight;
+
+    return content;
+}
+
+
+/* Send message */
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    input.value = "";
+
+    sendBtn.disabled = true;
+
+    /* Add user message */
+    messages.push({
+        role: "user",
+        content: text
+    });
+
+    addMessage("user", text);
+
+    /* Create empty AI message */
+    const aiMessage = addMessage("assistant", "");
+
+    try {
+
+        /*
+         * Connect directly to Ollama
+         *
+         * Default Ollama address:
+         * http://localhost:11434
+         */
+
+        const response = await fetch(
+            "http://localhost:11434/api/chat",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    model: "llama3.2",
+
+                    messages: messages,
+
+                    stream: true
+                })
+            }
+        );
+
+
+        if (!response.ok) {
+            throw new Error(
+                "Ollama returned an error."
+            );
+        }
+
+
+        const reader =
+            response.body.getReader();
+
+        const decoder =
+            new TextDecoder();
+
+        let answer = "";
+
+
+        /* Read streaming response */
+
+        while (true) {
+
+            const result =
+                await reader.read();
+
+            if (result.done) break;
+
+            const chunk =
+                decoder.decode(result.value);
+
+            const lines =
+                chunk.split("\n");
+
+            for (const line of lines) {
+
+                if (!line.trim()) continue;
+
+                try {
+
+                    const data =
+                        JSON.parse(line);
+
+                    if (
+                        data.message &&
+                        data.message.content
+                    ) {
+
+                        answer +=
+                            data.message.content;
+
+                        aiMessage.textContent =
+                            answer;
+
+                        chat.scrollTop =
+                            chat.scrollHeight;
+                    }
+
+                } catch (error) {
+                    // Ignore incomplete chunks
+                }
+            }
+        }
+
+
+        /* Save AI response */
+
+        messages.push({
+            role: "assistant",
+            content: answer
+        });
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        aiMessage.textContent =
+            "❌ Could not connect to Ollama.\n\n" +
+            "Make sure Ollama is running and " +
+            "the model 'llama3.2' is installed.";
+
+    }
+
+    sendBtn.disabled = false;
+
+    input.focus();
+});
+
+
+/* Clear conversation */
+
+clearBtn.addEventListener("click", function() {
+
+    messages = [];
+
+    chat.innerHTML = `
+        <div class="welcome" id="welcome">
+            <h2>How can I help you?</h2>
+            <p>Powered by Ollama</p>
+        </div>
+    `;
+
+});
+
+
+/* Enter key */
+
+input.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter" && !event.shiftKey) {
+
+        event.preventDefault();
+
+        form.requestSubmit();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
